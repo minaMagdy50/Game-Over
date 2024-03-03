@@ -1,13 +1,355 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --main-color: #32383e;
+  --seconde-color: #32383e;
+  --color-text: #fff;
+  --btn-main-color: #272729;
+
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main-btn {
+  background-color: var(--btn-main-color);
+  color: var(--color-text);
+}
+
+.main-btn:hover {
+  background: linear-gradient(rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.2));
+}
+
+.form-control,
+.form-control:focus {
+  background-color: var(--main-color);
+  color: var(--color-text);
+  border-color: var(--seconde-color);
+}
+
+.form-control::placeholder {
+  color: var(--color-text);
+}
+
+.badge-color {
+  background-color: var(--seconde-color);
+}
+
+/***** End theme customize *****/
+
+/***** Global *****/
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap");
+
+
+body {
+  font-family: "Comfortaa", cursive;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: var(--main-color);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nerko One", cursive;
+  color: var(--color-text) !important;
+}
+
+a,
+p,
+span {
+  color: inherit !important;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+/* input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  display: none;
+} */
+
+.login .login-area,
+.register .register-area {
+  background-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.nav-bg {
+  background-color: var(--main-color);
+}
+
+.nav-item .nav-link.active,
+.nav-item .nav-link:hover {
+  color: #09c !important;
+  transition: color 0.5s;
+}
+
+.blue-clr{
+  color: #09c !important;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--seconde-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+/***** End Global *****/
+
+/***** Login *****/
+.login .image {
+  background: url(assets/images/login.jpg) center / cover no-repeat;
+  min-height: 100%;
+}
+/***** End Login *****/
+
+/***** Register *****/
+
+.register .image {
+  background: url(assets/images/register.jpg) center / cover no-repeat;
+  min-height: 100%;
+}
+/***** End Register *****/
+
+/***** Home *****/
+.home .card {
+  filter: grayscale(0.7);
+  transition: transform 0.5s, filter 0.5s 0.1s;
+}
+
+.home .card:hover {
+  transform: scale(1.05);
+  filter: grayscale(0);
+}
+/***** End Home *****/
+
+/***** Details *****/
+.details {
+  background-color: #272729be;
+
+  backdrop-filter: blur(4px);
+}
+/***** End Details *****/
+
+/***** Loader *****/
+.loading {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: #272b30e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #fff;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: relative;
+}
+.loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-left: 4px solid #ff3d00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+     transform: rotate(0deg);
+  }
+  100% {
+     transform: rotate(360deg);
+  }
+}
+/***** End Loader *****/
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--color-text);
+}
+.error {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 320px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: #EF665B;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px -3px #111;
+}
+
+.error__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.error__icon path {
+  fill: #fff;
+}
+
+.error__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+}
+
+.error__close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.error__close path {
+  fill: #fff;
+}
+
+.loading{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0,0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+
+}
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(5, 65, 65);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 120px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(1px ,1px);
+} 
+.input-container {
+  width: 220px;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: calc(50% + 5px);
+  transform: translateY(calc(-50% - 5px));
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  transition: .2s linear;
+  border: 2.5px solid black;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.input:focus {
+  outline: none;
+  border: 0.5px solid black;
+  box-shadow: -5px -5px 0px black;
+}
+
+.input-container:hover > .icon {
+  animation: anim 1s linear infinite;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    transform: translateY(calc(-50% - 5px)) scale(1);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 5px)) scale(1.1);
+  }
 }
