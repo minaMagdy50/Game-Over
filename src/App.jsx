@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout/Layout'
 import Home from './Home/Home'
 import { Toaster } from 'react-hot-toast'
-import ProtectedRoute from './ProtectetRoute/ProtectetRoute'
+// import ProtectedRoute from './ProtectetRoute/ProtectetRoute'
 import Action from './Action/Action'
 import PermaDeath from './PermaDeath/PermaDeath'
 import Pixel from './Pixel/Pixel'
@@ -22,15 +22,15 @@ import Sailing from './Saling/Saling'
 
 let routers = createBrowserRouter([
   {path: '' , element: <Layout/> , children:[
-    {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> },
-    {path:'action' , element:<ProtectedRoute><Action/></ProtectedRoute> },
-    {path:'permadeath' , element:<ProtectedRoute><PermaDeath/></ProtectedRoute> },
-    {path:'pixel' , element:<ProtectedRoute><Pixel/></ProtectedRoute> },
-    {path:'pvp' , element:<ProtectedRoute><PVP/></ProtectedRoute> },
-    {path:'saling' , element:<ProtectedRoute><Sailing/></ProtectedRoute> },
-    {path:'shooter' , element:<ProtectedRoute><Shooter/></ProtectedRoute> },
-    {path:'superhero' , element:<ProtectedRoute><SuperHero/></ProtectedRoute> },
-    {path:'details/:id' , element:<ProtectedRoute><Details/></ProtectedRoute> },
+    {index:true , element:<Home/> },
+    {path:'action' , element:<Action/> },
+    {path:'permadeath' , element:<PermaDeath/> },
+    {path:'pixel' , element:<Pixel/> },
+    {path:'pvp' , element:<PVP/> },
+    {path:'saling' , element:<Sailing/> },
+    {path:'shooter' , element:<Shooter/> },
+    {path:'superhero' , element:<SuperHero/> },
+    {path:'details/:id' , element:<Details/> },
     {path: 'login' , element:<Login/>},
     {path: 'register' , element:<Rejester/>},
     {path: '*' , element:<NotFound/>},

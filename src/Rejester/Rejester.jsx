@@ -28,7 +28,8 @@ export default function Rejester(){
    async function rejesterSubmit(values) {
 
       setLoading(true)
-      console.log(values);
+      localStorage.setItem('userFname',values.first_name);
+      localStorage.setItem('userLname',values.last_name);
       let { data } = await axios.post(`https://movies-api.routemisr.com/signup`, values).catch((err)=>{
       })
          console.log(data);

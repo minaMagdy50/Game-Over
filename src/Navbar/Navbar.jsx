@@ -27,7 +27,7 @@ let userToken = localStorage.getItem('userToken')
 
   return <>
   
-{userToken ?<nav className="navbar navbar-expand-lg bg-dark text-white navbar-dark">
+<nav className="navbar navbar-expand-lg bg-dark text-white navbar-dark">
   <div className="container-fluid">
     <Link className="navbar-brand" to={'/'}>
       <img src={logo} className='w-25' alt="Game over logo" />
@@ -62,7 +62,10 @@ let userToken = localStorage.getItem('userToken')
           <Link className={href === '/action' ? "nav-link blue-clr" : "nav-link"} to={'/action'}>ACTION</Link>
         </li>
       </ul>
-      <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+     {userToken ?  <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-end">
+     <li className="nav-item">
+          <p className='fw-bold pt-3'>{localStorage.getItem('userFname') + localStorage.getItem('userLname') }</p>
+        </li>
       <li className="nav-item fw-bold">
         <button className='btn text-white' onClick={logOut}><button class="Btn">
   
@@ -74,10 +77,19 @@ let userToken = localStorage.getItem('userToken')
 
 </button>
         </li>
+      </ul> :   <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li className="nav-item">
+          <Link className={href === '/login' ? "nav-link blue-clr" : "nav-link"} to={'/login'}>Login</Link>
+        </li>
+        <li className="nav-item">
+          <Link className={href === '/register' ? "nav-link blue-clr" : "nav-link"} to={'/register'}>Register</Link>
+        </li>
+
       </ul>
+        }
     </div>
   </div>
-</nav> : '' }
+</nav>
 
   
   </>
